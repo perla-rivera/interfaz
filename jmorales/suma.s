@@ -1,7 +1,6 @@
-.section	.data
-.section	.text
-.globl		_start
-
+.section  .data
+.section  .text
+.globl  _start
 
 _start:
 mov %r1, $7
