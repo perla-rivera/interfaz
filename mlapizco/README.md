@@ -1,0 +1,14 @@
+foo
+foo
+omg
+lol
+let
+me
+go
+OMG
+ssss
+exit
+\exit
+/exit
+\quit
+/quit
