@@ -1,0 +1,112 @@
+std::piecewise_construct:
+        .zero   1
+__gnu_cxx::__promote_2<int, int, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<int, int>(int, int):
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movl    %edi, -4(%rbp)
+        movl    %esi, -8(%rbp)
+        pxor    %xmm1, %xmm1
+        cvtsi2sd        -8(%rbp), %xmm1
+        pxor    %xmm0, %xmm0
+        cvtsi2sd        -4(%rbp), %xmm0
+        call    pow
+        movq    %xmm0, %rax
+        movq    %rax, -16(%rbp)
+        movsd   -16(%rbp), %xmm0
+        leave
+        ret
+.LC0:
+        .string "Ingrese la base: "
+.LC1:
+        .string "Ingrese el exponente"
+.LC2:
+        .string " elevado a la "
+.LC3:
+        .string " es igual a "
+main:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        pushq   %rbx
+        subq    $24, %rsp
+        movl    $.LC0, %esi
+        movl    std::cout, %edi
+        call    std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+        movl    std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&), %esi
+        movq    %rax, %rdi
+        call    std::basic_ostream<char, std::char_traits<char> >::operator<<(std::basic_ostream<char, std::char_traits<char> >& (*)(std::basic_ostream<char, std::char_traits<char> >&))
+        leaq    -28(%rbp), %rax
+        movq    %rax, %rsi
+        movl    std::cin, %edi
+        call    std::basic_istream<char, std::char_traits<char> >::operator>>(int&)
+        movl    $.LC1, %esi
+        movl    std::cout, %edi
+        call    std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+        movl    std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&), %esi
+        movq    %rax, %rdi
+        call    std::basic_ostream<char, std::char_traits<char> >::operator<<(std::basic_ostream<char, std::char_traits<char> >& (*)(std::basic_ostream<char, std::char_traits<char> >&))
+        leaq    -24(%rbp), %rax
+        movq    %rax, %rsi
+        movl    std::cin, %edi
+        call    std::basic_istream<char, std::char_traits<char> >::operator>>(int&)
+        movl    -24(%rbp), %edx
+        movl    -28(%rbp), %eax
+        movl    %edx, %esi
+        movl    %eax, %edi
+        call    __gnu_cxx::__promote_2<int, int, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<int, int>(int, int)
+        cvttsd2si       %xmm0, %eax
+        movl    %eax, -20(%rbp)
+        movl    -24(%rbp), %ebx
+        movl    -28(%rbp), %eax
+        movl    %eax, %esi
+        movl    std::cout, %edi
+        call    std::basic_ostream<char, std::char_traits<char> >::operator<<(int)
+        movl    $.LC2, %esi
+        movq    %rax, %rdi
+        call    std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+        movl    %ebx, %esi
+        movq    %rax, %rdi
+        call    std::basic_ostream<char, std::char_traits<char> >::operator<<(int)
+        movl    $.LC3, %esi
+        movq    %rax, %rdi
+        call    std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+        movq    %rax, %rdx
+        movl    -20(%rbp), %eax
+        movl    %eax, %esi
+        movq    %rdx, %rdi
+        call    std::basic_ostream<char, std::char_traits<char> >::operator<<(int)
+        movl    std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&), %esi
+        movq    %rax, %rdi
+        call    std::basic_ostream<char, std::char_traits<char> >::operator<<(std::basic_ostream<char, std::char_traits<char> >& (*)(std::basic_ostream<char, std::char_traits<char> >&))
+        movl    $0, %eax
+        addq    $24, %rsp
+        popq    %rbx
+        popq    %rbp
+        ret
+__static_initialization_and_destruction_0(int, int):
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movl    %edi, -4(%rbp)
+        movl    %esi, -8(%rbp)
+        cmpl    $1, -4(%rbp)
+        jne     .L7
+        cmpl    $65535, -8(%rbp)
+        jne     .L7
+        movl    std::__ioinit, %edi
+        call    std::ios_base::Init::Init()
+        movl    $__dso_handle, %edx
+        movl    std::__ioinit, %esi
+        movl    std::ios_base::Init::~Init(), %edi
+        call    __cxa_atexit
+.L7:
+        nop
+        leave
+        ret
+        pushq   %rbp
+        movq    %rsp, %rbp
+        movl    $65535, %esi
+        movl    $1, %edi
+        call    __static_initialization_and_destruction_0(int, int)
+        popq    %rbp
+        ret
