@@ -1,8 +1,9 @@
 @ Espinoza Covarrubias Alejandro 13211465
-@ Practica 3
+@ Practica 4
 
 @ number.s
 @ test program to print a number
+
 .section	.data
 num:				@ cretate a variable
 	.long 12345
