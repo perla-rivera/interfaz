@@ -13,7 +13,7 @@
 .section	.data
 
 numbers:			@ the data we are poing toi use.
-.long	3,67,34,222,45,75,54,34,44,33,22,11,66,,0
+.long	3,67,34,222,45,75,54,34,44,33,22,11,66,0
 
 .globl _start
 
