@@ -1,20 +1,21 @@
-@ Espinoza Covarrubias Aleajndro 13211465
+@ Espinoza Covarrubias Alejandro 13211465
 @ Practica 6
 
 @ use_gdb.s
-@ demo program
+@ programa de demostracion
+
 .section	.data
 .section	.text
 .globl		_start
 
 _start:
-mov r1, $5	@ load r1 with 5
-cmp r1, $4	@ compare r1 with 4
-sub r1, r1, $1	@ subtract 1
-cmp r1, $4	@ r1 now DOES equal 4
+mov r1, $5	@ carga r1 con 5
+cmp r1, $4	@ compara r1 con 4
+sub r1, r1, $1	@ obtiene 1
+cmp r1, $4	@ r1 ahora es igual a 4
 sub r1, r1, $1
 cmp r1, $4
 
-mov r7, $1	@ exit syscall
-svc $0		@ wake kernel
+mov r7, $1	@ salir de  syscall
+svc $0		@ activar kernel
 .end
