@@ -2,34 +2,34 @@
 @ Practica 4
 
 @ number.s
-@ test program to print a number
+@ Programa de prueba para imprimir un numero
 
 .section	.data
-num:				@ cretate a variable
+num:				@ crea una variable
 	.long 12345
 .globl	_start
 _start:
-	ldr r3, =num		@ load r3 with address fo num
-	ldr r4, [r3]		@ lod r4 with the number
-	mov r5, $0		@ set counter to 0
+	ldr r3, =num		@ Carga r3 con un numero
+	ldr r4, [r3]		@ Carga  r4 con el numero
+	mov r5, $0		@ Contador desde 0
 loop:
-	cmp r4, $9		@ if r4 <= 9 ...
-	ble print		@ print digit
-	sub r4, r4, $10		@ subtract 10 from r4
-	add r5, r5, $1		@ add one to counter
-	bal loop		@ back to top of loop
+	cmp r4, $9		@ si r4 <= 9 ...
+	ble print		@ mostrar el digito
+	sub r4, r4, $10		@ extraer 10 de r4
+	add r5, r5, $1		@ agregar uno al contador
+	bal loop		@ regresa al valor mas alto del ciclo
 print:
-	add r0, r4, $0x30	@ load r0 with r4 + 48 (ascii code)
-	bl PrintChar		@ call PrintChar function
-	cmp r5, $0		@ if the counter is zero ...
-	beq exit		@ we are done
-	mov r4, r5		@ load r4 with counter
-	mov r5, $0		@ set counter to zero
-	bal loop		@ back to top of loop
+	add r0, r4, $0x30	@ Carga r0 con r4 + 48 (codigo ascii)
+	bl PrintChar		@ llama a la funcion PrintChar
+	cmp r5, $0		@ si el contador es cero ...
+	beq exit		@ Termina
+	mov r4, r5		@ Carga r4 con valor de contador
+	mov r5, $0		@ Conatador en cero
+	bal loop		@ Regresa al valor mas alto del ciclo
 exit:
-	mov	r0, $0xA	@ print a newline
+	mov	r0, $0xA	@ Muestra una nueva linea
 	bl	PrintChar
-	mov	r0, $0		@ exit
+	mov	r0, $0		@ Salir
 	mov	r7, $1
 	svc	$0
 
