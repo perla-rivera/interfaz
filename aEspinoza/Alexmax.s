@@ -2,36 +2,36 @@
 @ Practica 3
 
 @ max.s
-@ find the maximun from a list of numbers.
-@ nicked & refactores for ARM fromn "Programming from the Ground Up".
+@ Encuntra el maximo de una lista de nuemros.
+@ entalle  y refactores para ARM de "Programming from the Ground Up".
 
 
-@ r1 - used to hold address of data items
-@ r0 - used for the largest item
-@ r3 - used for current data item
+@ r1 - usado para matener direccion de datos de items
+@ r0 - usado por el item mas largo
+@ r3 - usado por el item actual
 
 .section	.data
 
-numbers:			@ the data we are poing toi use.
+numbers:			@ El valor que estamos utilizando.
 .long	3,67,34,222,45,75,54,34,44,33,22,11,66,0
 
 .globl _start
 
 _start:
-ldr %r1, =numbers		@ set r1 to start address of "numbers"
-ldr %r3, [%r1]			@ load r3 with first number
-mov %r0, %r3			@ at start the current number must be the largest.
+ldr %r1, =numbers		@ Indica r1 para comensar con la direccion de "numberos"
+ldr %r3, [%r1]			@ Carga r3 con el primer numero
+mov %r0, %r3			@ Comienza el numero actual deb ser el mayor.
 
 loop:
-	cmp %r3, $0		@ check if r3 holds zero (end of list)
-	beq exit		@ if so, exit
-	ldr %r3, [%r1,#4]!	@ load next item into r3
-	cmp %r3, %r0		@ compare r0 and r3
-	ble loop		@ go to start of loop if r3 <= r0
-	mov %r0, %r3		@ otherwise put r3 into r0
-	bal loop		@ go to start of loop (branch always)
+	cmp %r3, $0		@ Revisa si r3 tiene zero (final de la lista)
+	beq exit		@ Entonces, salir
+	ldr %r3, [%r1,#4]!	@ Carga siguiente item en r3
+	cmp %r3, %r0		@ Compara r0 y r3
+	ble loop		@ Regresa al principio de la lista y reliza de nuevo el ciclo si r3 <= r0
+	mov %r0, %r3		@ De lo contrario asignar r3 en r0
+	bal loop		@ Ir al inicio del ciclo (branch always)
 
-exit:				@ largest value is now in r0
-mov %r7, $1			@ prepare to exit
-svc $0				@ wake kernel
-.end				@ marks the end the code
+exit:				@ El valor mayor esta ahora en r0
+mov %r7, $1			@ Prepara para salir
+svc $0				@ Activar kernel
+.end				@ Indica el fin del codigo
