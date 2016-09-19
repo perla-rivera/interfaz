@@ -1,17 +1,17 @@
 @ Espinoza Covarrubias Alejandro 13211465
 @ Practica 2
 
-@ add.s - simple addition code
+@ add.s - codigo simple de adicion
 
-@ instructions taht start with a dot are intructions for the assembler.
-.section	.data		@ a section for data (unused)
-.section	.text		@ a section for text (unused)
-.globl		_start		@ sets the global label "_start"
+@ instrucciones para ensamblador.
+.section	.data		@ una seccion para datos (sin usar)
+.section	.text		@ una seccion para texto (sin usar)
+.globl		_start		@ Asigna una etiqueta global "_start"
 
-_start:				@ code starts here.
-mov %r1, $7			@ puts the value 7 in r1
-mov %r0, $8			@ puts the value 8 in r0
-add %r0, %r0, %r1		@ add r0 to r1 and store result in r0
+_start:				@ comienza el codigo
+mov %r1, $7			@ coloca el valor 7 en r1
+mov %r0, $8			@ coloca el valor 8 en r0
+add %r0, %r0, %r1		@ agrega r0 a r1 y almacena el resultado en r0
 
-mov %r7, $1			@ this is how to sent an exit syscall
-svc $0				@ the interrupt to wake the kernel
+mov %r7, $1			@ envia una salida a syscall
+svc $0				@ la interrupcionpara activar el kernel
