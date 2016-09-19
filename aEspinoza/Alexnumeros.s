@@ -10,7 +10,7 @@ num:				@ crea una variable
 .globl	_start
 _start:
 	ldr r3, =num		@ Carga r3 con un numero
-	ldr r4, [r3]		@ Carga  r4 con el numero
+	ldr r4, [r3]		@ Carga r4 con el numero
 	mov r5, $0		@ Contador desde 0
 loop:
 	cmp r4, $9		@ si r4 <= 9 ...
