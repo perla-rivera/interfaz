@@ -1,4 +1,6 @@
 @ Miguel Ángel Álvarez Lapizco
+@ 13211477
+@ 27/Septiembre/2016
 @ Programa de Hola Mundo por ASMTut.
 
 .global _start
