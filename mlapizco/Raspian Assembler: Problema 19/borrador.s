@@ -1,4 +1,6 @@
 @ Álvarez Lapizco Miguel Ángel
+@ 13211477
+@ 27/Septiembre/2016
 @ Lenguajes de Interfaz
 
 .global _start
