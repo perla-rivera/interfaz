@@ -1,23 +1,26 @@
-.section	.data
+.section	.data 
 .section	.text
-
-string: .asciz  "%c\n\0"
-n:	.int	1
 
 .text
 .globl	_start
-.extern printf
+
+n:	.int	1
+num: 	.skip 20 * 4
 
 recursivo:
-	cmp $r4, $100
+	cmp r4, #3
 	bl _exit
-	add r4, #1
+
+	add r4, r4, #1
+
 	and r4, #0
 	bl recursivo
-	ldr r0, =string
+
+	LDR R9, =num
 	mov r1, r5
 	mov r2, r6
-	bl printf
+	STR R4, [R9], #4
+	BL recursivo
 
 _start:
 	ldr	r4, =n
@@ -26,6 +29,13 @@ _start:
 	bl recursivo
 
 _exit:
+
+	LDR R9, =num
+	MOV R0, R9
+	MOV R2, #1
+	MOV R7, #4
+	SWI 0
+
 mov r7, #1
 svc #0
 .end
